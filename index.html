@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔐 Personal Vault</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>🔐 Vault</h2>
+    <button onclick="scrollToSection('profile')">👤 Profile</button>
+    <button onclick="scrollToSection('notes')">📝 Notes</button>
+    <button onclick="scrollToSection('settings')">⚙️ Settings</button>
+    <button onclick="toggleTheme()">🌓 Toggle Theme</button>
+  </div>
+
+  <!-- PIN SCREEN -->
+  <div id="pinScreen" class="pin-screen">
+    <h2>🔐 Enter PIN to Unlock</h2>
+    <input type="password" id="pinInput" placeholder="Enter 4-digit PIN" maxlength="4" />
+    <button onclick="unlockApp()">Unlock</button>
+  </div>
+
+  <!-- SET PIN SCREEN -->
+  <div id="setPinScreen" class="pin-screen" style="display: none;">
+    <h2>🔧 Set Your App PIN</h2>
+    <input type="password" id="newPinInput" placeholder="Set 4-digit PIN" maxlength="4" />
+    <button onclick="setNewPin()">Set PIN</button>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="mainApp" class="container" style="display: none;">
+    <h1>🔐 Welcome to Your Personal Vault</h1>
+
+    <!-- PROFILE SECTION -->
+    <section class="section" id="profile">
+      <h2>👤 Profile Info</h2>
+
+      <!-- Profile Photo -->
+      <div class="subsection">
+        <h3>📷 Profile Photo</h3>
+        <input type="file" id="profilePic" accept="image/*" />
+        <img id="profilePreview" src="" class="profile-image" />
+      </div>
+
+      <form id="profileForm">
+        <!-- Personal Details -->
+        <div class="subsection">
+          <h3>👤 Personal Details</h3>
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email" />
+          <input type="date" id="dob" />
+        </div>
+
+        <!-- Government IDs -->
+        <div class="subsection">
+          <h3>🆔 Government IDs</h3>
+          <input type="text" id="aadhar" placeholder="Aadhar Number" />
+          <input type="text" id="pan" placeholder="PAN Number" />
+        </div>
+
+        <button type="submit">💾 Save Profile</button>
+      </form>
+
+      <div id="profileDisplay" class="info-box"></div>
+    </section>
+
+    <!-- NOTES SECTION -->
+    <section class="section" id="notes">
+      <h2>📝 Secure Notes</h2>
+      <form id="noteForm">
+        <input type="text" id="noteTitle" placeholder="Note Title" required />
+        <textarea id="noteContent" placeholder="Write your note..." required></textarea>
+        <button type="submit">Add Note</button>
+      </form>
+      <div id="notesContainer" class="notes-list"></div>
+    </section>
+
+    <!-- SETTINGS SECTION -->
+    <section class="section" id="settings">
+      <h2>⚙️ Settings</h2>
+      <button onclick="changePIN()">🔁 Change PIN</button>
+      <button onclick="exportVault()">📤 Export Vault</button>
+      <input type="file" id="importFile" />
+      <button onclick="importVault()">📥 Import Vault</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

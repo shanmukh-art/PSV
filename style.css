@@ -1,0 +1,344 @@
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==== BASE ==== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  color: #2c3e50;
+  display: flex;
+  height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+}
+
+/* ==== SIDEBAR ==== */
+.sidebar {
+  width: 220px;
+  background: #34495e;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  height: 100%;
+  transition: background 0.3s ease;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sidebar button {
+  background: transparent;
+  border: none;
+  color: #ecf0f1;
+  font-size: 16px;
+  text-align: left;
+  padding: 12px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sidebar button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==== CONTAINER ==== */
+.container {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+  padding: 40px;
+  overflow-y: auto;
+  height: 100vh;
+  transition: background 0.3s ease;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+  animation: slideDown 0.4s ease;
+}
+
+.section {
+  margin-bottom: 40px;
+  animation: fadeInUp 0.5s ease;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 6px;
+  color: #2c3e50;
+}
+
+/* ==== SUBSECTIONS ==== */
+.subsection {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+body.dark .subsection {
+  background: #2e2f3c;
+  border-color: #2980b9;
+}
+
+.subsection h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+body.dark .subsection h3 {
+  color: #f1f1f1;
+}
+
+/* ==== FORM INPUTS ==== */
+form input,
+form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background: #fdfdfd;
+  transition: all 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #fff;
+}
+
+form button {
+  padding: 12px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #2c81ba;
+}
+
+/* ==== PROFILE IMAGE ==== */
+.profile-image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 10px auto;
+  border: 3px solid #3498db;
+  transition: transform 0.3s ease;
+}
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* ==== INFO BOX ==== */
+.info-box {
+  background-color: #ecf0f1;
+  padding: 16px;
+  border-radius: 10px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+body.dark .info-box {
+  background: #2a2d3b;
+  color: #f1f1f1;
+}
+
+/* ==== NOTES ==== */
+.notes-list {
+  display: grid;
+  gap: 16px;
+}
+
+.note {
+  background: white;
+  padding: 16px;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.note:hover {
+  transform: translateY(-3px);
+}
+
+.note h3 {
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.note p {
+  font-size: 14px;
+}
+
+.note button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e74c3c;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.note button:hover {
+  background: #c0392b;
+}
+
+/* ==== PIN SCREEN ==== */
+.pin-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.pin-screen input {
+  padding: 14px;
+  width: 240px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.pin-screen button {
+  padding: 12px 30px;
+  background: #3498db;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pin-screen button:hover {
+  background: #2980b9;
+}
+
+/* ==== DARK MODE ==== */
+body.dark {
+  background: #181a1f;
+  color: #f1f1f1;
+}
+
+body.dark .container {
+  background: #22242c;
+}
+
+body.dark .sidebar {
+  background: #111319;
+}
+
+body.dark input,
+body.dark textarea {
+  background: #2e2e38;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark form button,
+body.dark .pin-screen button {
+  background: #2980b9;
+}
+
+body.dark .note {
+  background: #2e2e3a;
+  border-color: #3498db;
+}
+
+body.dark .note p {
+  color: #ccc;
+}
+
+body.dark .profile-image {
+  border-color: #1e90ff;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    z-index: 10;
+  }
+
+  .container {
+    margin-left: 0;
+    margin-top: 80px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+}
